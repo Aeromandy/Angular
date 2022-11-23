@@ -1,0 +1,31 @@
+<app-header></app-header>
+<mat-card>
+    <mat-card-title>Forms (Template Driven) </mat-card-title>
+    <mat-card-subtitle>Super Hero Info</mat-card-subtitle>
+    <form>
+        <label>Nome</label>
+        <input type="text" name="nome" [(ngModel)]="hero.name"><br><br>
+        <label>Idade</label>
+        <input type="number" name="idade" [(ngModel)]="hero.age"><br><br>
+        <label>Poder</label>
+        <input type="text" name="poder" [(ngModel)]="hero.power"><br><br>
+        <button>Cadastrar</button>
+    </form>
+    <h3>{{ hero | json }}</h3>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Forms (Data Driven)</mat-card-title>
+    <mat-card-subtitle>Cadastro Frutas</mat-card-subtitle>
+    <form [formGroup]="form">
+        <label>Nome</label>
+        <input type="text" name="nome" formControlName="nome"><br><br>
+        <label>Cor</label>
+        <input type="text" name="cor" formControlName="cor"><br><br>
+        <label>Preço (Kg)</label>
+        <input type="number" name="preco" formControlName="preco"><br><br>
+        <button>Cadastrar</button>
+    </form>
+    <h3>{{ formFrutas.value | json }}</h3>
+</mat-card>
+

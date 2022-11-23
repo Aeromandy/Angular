@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<mat-card>
+
+    <mat-card-title>Data Binding</mat-card-title>
+
+    <h1>Bem-vindo(a), {{user}}!</h1>
+
+    <img [src]="image.src" [alt]="image.alt"><br>
+
+    <button (click)="clicar()">Clique aqui</button><br>
+
+    <input type="text" placeholder="Digite seu nome" [(ngModel)]="user">
+
+</mat-card>
+
+<mat-card>
+
+    <mat-card-title>Diretivas</mat-card-title>
+
+    <h2 [ngStyle]="objStyle">Exemplo ngStyle:</h2>
+    <h2 [ngClass]="{'green': !isError, 'red': isError}">Exemplo ngClass:</h2>
+    <h2>Sapinho</h2>
+    <button (click)="mudarSapinho()">Mudar</button>
+    <img *ngIf="sapinho; else elseContainer" src="assets/sapo-1.jpg" alt="Sapinho 1">
+    <ng-template #elseContainer>
+        <img src="assets/sapo-2.jpg" alt="Sapinho 2">
+    </ng-template>
+
+    <h2>Peixes</h2>
+    <ul>
+        <li *ngFor="let peixe of peixes; let i = index">{{i+1}} -> {{peixe}}</li>
+    </ul>
+
+
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Pipes</mat-card-title>
+    <h2>{{ pipe | uppercase }}</h2>
+    <h2>{{ pipe | lowercase }}</h2>
+    <h1>{{ numberPipe | number: '2.2-3' }}</h1>
+    <h2>{{ nowPipe | date: 'dd/MM/yyyy HH:mm'}}</h2>
+    <h2>{{ objPipe | json }}</h2>
+</mat-card>
+ 
+
+<!-- <app-footer></app-footer> -->
